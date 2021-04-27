@@ -1,5 +1,8 @@
 import os
 import urllib.request
+from tkinter import *
+from string import ascii_uppercase
+from PIL import ImageTk, Image
 
 # You could use your web browser to download the file
 # But I prefer this solution
@@ -22,3 +25,52 @@ def fetch_words_data(words_path=WORDS_PATH,words_url=WORDS_URL):
     return dataset
 
 df = fetch_words_data() 
+
+class Hangman:
+    
+    paths = ["images/hang0.png","images/hang1.png","images/hang2.png","images/hang3.png",
+            "images/hang4.png","images/hang5.png","images/hang6.png","images/hang7.png",
+            "images/hang8.png","images/hang9.png","images/hang10.png","images/hang11.png"]
+    
+    the_word_withSpace=" "
+    numberOfGuesses = 0
+
+    def __init__(self,master):
+        self.count = 0
+        self.structure(master)
+        self.aa = master
+    def structure(self,master):
+
+        """ Instruction Label """
+        # Create a Hangman's Background
+        self.img = ImageTk.PhotoImage(Image.open(self.paths[0]))
+        self.imgLabel = Label(master)
+        self.imgLabel.grid(row=0, column=0, columnspan=3, padx=10, pady= 40)
+        self.imgLabel.config(image = self.img)
+        
+        # Creating label to display current Guessed Status of Word
+        self.lblWord = StringVar()
+        Label(master,textvariable=self.lblWord,font=("Consolas 24 bold")).grid(row=0,column=3,columnspan=6,padx=10)
+
+        # Create list box for History of wrong answer
+        self.lbl = Listbox(master)
+        self.lbl.grid(row=0,column=9)
+        
+        # Create label for count life
+        self.lbl2 = Label(master,text=f'{self.numberOfGuesses} / 10 ')
+        self.lbl2.grid(row=0,column=0)
+
+        # Alphabet buttons
+        n = 0
+        for c in ascii_uppercase:
+            Button(master,text=c,command=lambda c=c:self.guess(c),font=("Helvetica 18"),width=4).grid(row=1+n // 9,column=n % 9)
+            n += 1
+        
+        # Creating a newGame button
+        Button(master,text='New\nGame',command=lambda:self.newGame(),font=("Helvetica 10 bold")).grid(row=3,column=8,sticky='NSWE')
+
+root = Tk()
+root.title("Hangman Game")
+root.geometry("750x480")
+app = Hangman(root)
+root.mainloop()
