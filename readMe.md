@@ -5,7 +5,6 @@ Hangman is a paper and pencil guessing game for two or more players. One player 
 ## GUI
 
 I created this game with [Tkinter](https://docs.python.org/3/library/tkinter.html)   
-you are free to use any dataset I prefer to use this one because it has hard and simple words
 
 ```python
 from tkinter import *
@@ -16,7 +15,9 @@ import tkinter
 
 ## Data
 
-I use this dataset from this [repository](https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt) of GitHub
+I use this dataset from this [repository](https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt) of GitHub  
+You are free to use any dataset I prefer to use this one because it has hard and simple words
+
 ```python
 import os
 import urllib.request
