@@ -3,7 +3,7 @@ import urllib.request
 from tkinter import *
 from string import ascii_uppercase
 from PIL import ImageTk, Image
-
+from random import randint
 # You could use your web browser to download the file
 # But I prefer this solution
 
@@ -68,6 +68,32 @@ class Hangman:
         
         # Creating a newGame button
         Button(master,text='New\nGame',command=lambda:self.newGame(),font=("Helvetica 10 bold")).grid(row=3,column=8,sticky='NSWE')
+
+        self.newGame()
+
+    def newGame(self):
+
+        ''' Create new game '''
+
+        # Initialize number of guess 
+        self.numberOfGuesses = 0
+        
+        # Change Hangman's display image
+        self.img = ImageTk.PhotoImage(Image.open(self.paths[0]))
+        self.imgLabel.config(image = self.img)
+
+        # Change life count text
+        self.lbl2.config(text=f'{self.numberOfGuesses}/10')
+
+        # Generate one random word
+        the_word = df[randint(0,len(df)-1)] 
+        
+        # Created for cheating :)
+        print(the_word)
+
+        # Change the values 
+        self.the_word_withSpace=" ".join(the_word.upper())
+        self.lblWord.set(" ".join("_"*len(the_word)))
 
 root = Tk()
 root.title("Hangman Game")
