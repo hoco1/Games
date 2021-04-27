@@ -4,12 +4,15 @@ Hangman is a paper and pencil guessing game for two or more players. One player 
 
 ## GUI
 
-I created this game with [Tkinter](https://docs.python.org/3/library/tkinter.html) 
+I created this game with [Tkinter](https://docs.python.org/3/library/tkinter.html)   
 you are free to use any dataset I prefer to use this one because it has hard and simple words
+
 ```python
 from tkinter import *
 import tkinter
 ```
+
+
 
 ## Data
 
