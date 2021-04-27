@@ -96,9 +96,6 @@ class Hangman:
         # Change the values 
         self.the_word_withSpace=" ".join(the_word.upper())
         self.lblWord.set(" ".join("_"*len(the_word)))
-
-        
-        
     
     def guess(self,letter):
     
