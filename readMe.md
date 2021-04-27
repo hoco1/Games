@@ -4,7 +4,7 @@ Hangman is a paper and pencil guessing game for two or more players. One player 
 
 ## GUI
 
-I created this game with [Tkinter](https://docs.python.org/3/library/tkinter.html) 
+I created this game with [Tkinter](https://docs.python.org/3/library/tkinter.html)   
 you are free to use any dataset I prefer to use this one because it has hard and simple words
 ![alt text](https://github.com/hoco1/Hangman/blob/main/images/Screenshot%202021-04-27%20172319.jpg?raw=true)
 
