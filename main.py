@@ -4,6 +4,8 @@ from tkinter import *
 from string import ascii_uppercase
 from PIL import ImageTk, Image
 from random import randint
+from tkinter import messagebox
+
 # You could use your web browser to download the file
 # But I prefer this solution
 
@@ -94,6 +96,46 @@ class Hangman:
         # Change the values 
         self.the_word_withSpace=" ".join(the_word.upper())
         self.lblWord.set(" ".join("_"*len(the_word)))
+
+        
+        
+    
+    def guess(self,letter):
+    
+        # Check number of Guess value
+        if self.numberOfGuesses < 11:
+            
+            # The random word is 'EQUITY' it's going to be 
+            # ['E', ' ', 'Q', ' ', 'U', ' ', 'I', ' ', 'T',' ' , 'Y'] like this
+            txt = list(self.the_word_withSpace)
+            
+            # For example, you guess the two of words  it's going to be 
+            # ['E', ' ', 'Q', ' ', '_', ' ', '_', ' ', '_', ' ', '_'] like this
+            self.guessed = list(self.lblWord.get())
+
+            if self.the_word_withSpace.count(letter)>0:
+                for c in range(len(txt)):
+                    # Checked the guessed word is in the txt
+                    if txt[c]==letter:
+                        self.guessed[c]=letter
+                    self.lblWord.set("".join(self.guessed))
+
+                #Condition of Player Won
+                if self.lblWord.get()==self.the_word_withSpace:
+                    messagebox.showinfo('Hangman','You guessed it!')
+            else:
+                self.numberOfGuesses +=1
+
+                # Add letter in list box
+                self.lbl.insert(self.numberOfGuesses,letter)
+                self.lbl2.config(text=f'{self.numberOfGuesses-1}/10')
+
+                self.img = ImageTk.PhotoImage(Image.open(self.paths[self.numberOfGuesses]))
+                self.imgLabel.config(image = self.img)
+
+                # Condition Of player Loose
+                if self.numberOfGuesses ==11:
+                    messagebox.showinfo('Hangman','Game Over')
 
 root = Tk()
 root.title("Hangman Game")
