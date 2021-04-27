@@ -11,7 +11,7 @@ you are free to use any dataset I prefer to use this one because it has hard and
 from tkinter import *
 import tkinter
 ```
-<\br>
+<br\>
 ![alt text](https://github.com/hoco1/Hangman/blob/main/images/Screenshot%202021-04-27%20172319.jpg?raw=true)
 
 ## Data
