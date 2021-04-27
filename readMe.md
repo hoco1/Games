@@ -12,7 +12,7 @@ from tkinter import *
 import tkinter
 ```
 
-
+![alt text](https://github.com/hoco1/Hangman/blob/main/images/Screenshot%202021-04-27%20174753.jpg?raw=true)
 
 ## Data
 
