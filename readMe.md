@@ -16,7 +16,7 @@ import tkinter
 
 ## Data
 
-I use this dataset from this [repository](https://raw.githubusercontent.com/dwyl/english-words/master/) of GitHub
+I use this dataset from this [repository](https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt) of GitHub
 ```python
 import os
 import urllib.request
